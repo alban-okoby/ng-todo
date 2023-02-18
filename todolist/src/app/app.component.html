@@ -2,17 +2,15 @@
   <h1>Ma liste de tâches</h1>
   <h2 for="addItemInput">Alors on fait quoi aujourd'hui ?</h2>
 
-  <input
-    #newItem
-    placeholder="Ajouter un élément"
-    (keyup.enter)="addItem(newItem.value)"
-    id="addItemInput" class="lg-text-input"
-  />
+  <input #newItem placeholder="Ajouter un élément" (keyup.enter)="addItem(newItem.value)" id="addItemInput"
+    class="lg-text-input" />
 
-  <button class="btp-primary" (click)="addItem(newItem.value); newItem.value = '' ">Ajouter</button>
-  <ul>
-    <li *ngFor="let i of items">
-      {{i.description}}
-    </li>
-  </ul>
+  <button class="btn-primary" (click)="addItem(newItem.value); newItem.value = '' ">Ajouter</button>
+  <div class="todo-list">
+      <div class="todo-item" *ngFor="let i of items">
+        <div class="checker"><span class=""><input type="checkbox"></span></div>
+        <span>  {{i.description}} </span>
+        <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+      </div>
+  </div>
 </div>
