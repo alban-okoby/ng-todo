@@ -1,7 +1,15 @@
 <div class="main">
   <h1>Ma liste de tâches</h1>
-  <h2>Alors on fait quoi aujourd'hui ?</h2>
+  <h2 for="addItemInput">Alors on fait quoi aujourd'hui ?</h2>
 
+  <input
+    #newItem
+    placeholder="Ajouter un élément"
+    (keyup.enter)="addItem(newItem.value)"
+    id="addItemInput" class="lg-text-input"
+  />
+
+  <button class="btp-primary" (click)="addItem(newItem.value); newItem.value = '' ">Ajouter</button>
   <ul>
     <li *ngFor="let i of items">
       {{i.description}}
